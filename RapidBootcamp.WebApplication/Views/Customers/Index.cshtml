@@ -1,0 +1,42 @@
+@model List<RapidBootcamp.WebApplication.Models.Customer>
+
+<html>
+    <head>
+        <title>List Of Customers</title>
+    </head>
+    <body>
+        <h1>List of Customers</h1>
+        <p>@ViewBag.Message</p>
+        <a href="/Customers/Create">Create Customer</a>
+        <form action="/Customers/Index" method="post">
+            <input type="text" name="searchStr">
+            <input type="submit" value="Search">
+        </form>
+        <table>
+            <tr>
+                <th>Id Customer</th>
+                <th>Customer Name</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+            </tr>
+            @foreach(var customer in Model)
+            {
+                <tr>
+                    <td>@customer.CustomerId</td>
+                    <td>@customer.CustomerName</td>
+                    <td>@customer.Address</td>
+                    <td>@customer.City</td>
+                    <td>@customer.Email</td>
+                    <td>@customer.PhoneNumber</td>
+                    <td><a href="customers/details/@customer.CustomerId">Details</a></td>
+                    <td><a href="customers/edit/@customer.CustomerId">Edit</a></td>
+                    <td><a href="customers/delete/@customer.CustomerId">Delete</a></td>
+                </tr>
+            }
+        </table>
+    </body>
+</html>

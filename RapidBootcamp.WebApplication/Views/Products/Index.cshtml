@@ -1,0 +1,40 @@
+@model List<RapidBootcamp.WebApplication.Models.Product>
+
+<html>
+    <head>
+        <title>List Of Products</title>
+    </head>
+    <body>
+        <h1>List of Products</h1>
+        <p>@ViewBag.Message</p>
+        <a href="/Products/Create">Create Product</a>
+        <form action="/Products/Index" method="post">
+            <input type="text" name="searchStr">
+            <input type="submit" value="Search">
+        </form>
+        <table>
+            <tr>
+                <th>Id Product</th>
+                <th>Product Name</th>
+                <th>Category Name</th>
+                <th>Stock</th>
+                <th>Price</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+            </tr>
+            @foreach(var product in Model)
+            {
+                <tr>
+                    <td>@product.ProductId</td>
+                    <td>@product.ProductName</td>
+                    <td>@product.Category.CategoryName</td>
+                    <td>@product.Stock</td>
+                    <td>@product.Price</td>
+                    <td><a href="products/details/@product.ProductId">Details</a></td>
+                    <td><a href="products/edit/@product.ProductId">Edit</a></td>
+                    <td><a href="products/delete/@product.ProductId">Delete</a></td>
+                </tr>
+            }
+        </table>
+    </body>
+</html>

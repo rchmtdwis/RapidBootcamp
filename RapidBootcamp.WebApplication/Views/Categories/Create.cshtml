@@ -1,0 +1,22 @@
+@model RapidBootcamp.WebApplication.Models.Category
+
+<html>
+    <head>
+        <title>Create Category</title>
+    </head>
+    
+    <body>
+        <h1>Create Category</h1>
+        <p>@ViewBag.ErrorMessage</p>
+        <form action="/Categories/Create" method="post">
+            <div class="">
+                <label for="CategoryName">Category Name: </label>
+                <input type="text" name="CategoryName">
+            </div>
+            <div class="">
+                
+                <input type="submit" value="Create">
+            </div>
+        </form>
+    </body>
+</html>
